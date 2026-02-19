@@ -1,0 +1,15 @@
+I1=imread('Image1.png');I2=imread('Image2.png');BG=imread('background.png');
+I2=imresize(I2,[size(I1,1) size(I1,2)]);
+BG=imresize(BG,[size(I1,1) size(I1,2)]);
+Added=imadd(I1,I2);
+Gray=rgb2gray(Added);
+Mask=Gray>10;
+Mask3=repmat(Mask,[1 1 3]);
+Result=uint8(double(Added).*double(Mask3)+double(BG).*(1-double(Mask3)));
+figure;
+subplot(2,3,1);imshow(I1);title('Input1');
+subplot(2,3,2);imshow(I2);title('Input2');
+subplot(2,3,3);imshow(BG);title('Background');
+subplot(2,3,4);imshow(Added);title('Input1+Input2');
+subplot(2,3,5);imshow(Mask);title('Mask');
+subplot(2,3,6);imshow(Result);title('Superimposed');
