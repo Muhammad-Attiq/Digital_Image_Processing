@@ -1,0 +1,13 @@
+A = rgb2gray(imread('image1.png'));
+B = rgb2gray(imread('image2.png'));
+Add = uint8(min(double(A)+double(B),255));
+Sub = uint8(max(double(A)-double(B),0));
+figure;
+subplot(1,2,1), imshow(Add), title('Addition');
+subplot(1,2,2), imshow(Sub), title('Subtraction');
+I = rgb2gray(imread('image1.png'));
+BrightUp = uint8(min(double(I)+50,255));
+BrightDown = uint8(max(double(I)-50,0));
+figure;
+subplot(1,2,1), imshow(BrightUp), title('Brighter');
+subplot(1,2,2), imshow(BrightDown), title('Darker');
