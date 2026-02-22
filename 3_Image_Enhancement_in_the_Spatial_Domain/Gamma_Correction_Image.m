@@ -1,0 +1,10 @@
+clc;clear;close all;
+I=imread('cameraman.tif');
+I=im2double(I);
+gamma1=0.5;gamma2=1;gamma3=2;
+I1=I.^gamma1;I2=I.^gamma2;I3=I.^gamma3;
+figure;
+subplot(2,2,1);imshow(I);title('Original Image');
+subplot(2,2,2);imshow(I1);title('Gamma=0.5');
+subplot(2,2,3);imshow(I2);title('Gamma=1');
+subplot(2,2,4);imshow(I3);title('Gamma=2');
