@@ -1,0 +1,14 @@
+clc;clear;close all;
+I1=imread('1.png');
+I2=imread('2.png');
+figure;
+subplot(2,4,1);imshow(I1);title('Img1 Original');
+subplot(2,4,2);imhist(I1);title('Img1 Hist');
+J1=histeq(I1);
+subplot(2,4,3);imshow(J1);title('Img1 Equalized');
+subplot(2,4,4);imhist(J1);title('Img1 Eq Hist');
+subplot(2,4,5);imshow(I2);title('Img2 Original');
+subplot(2,4,6);imhist(I2);title('Img2 Hist');
+J2=histeq(I2);
+subplot(2,4,7);imshow(J2);title('Img2 Equalized');
+subplot(2,4,8);imhist(J2);title('Img2 Eq Hist');
