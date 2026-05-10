@@ -1,0 +1,13 @@
+I = imread('cameraman.tif');
+I = im2double(I);
+I_noisy = imnoise(I, 'gaussian', 0, 0.02);
+[thr, sorh, keepapp] = ddencmp('den', 'wv', I_noisy);
+I_denoised = wdencmp('gbl', I_noisy, 'haar', 2, thr, sorh, keepapp);
+figure;
+imshow(I_denoised);
+title('Denoised Image');
+[cA, cH, cV, cD] = dwt2(I, 'haar');
+I_compressed = idwt2(cA, zeros(size(cH)), zeros(size(cV)), zeros(size(cD)), 'haar');
+figure;
+imshow(I_compressed);
+title('Compressed Image');
