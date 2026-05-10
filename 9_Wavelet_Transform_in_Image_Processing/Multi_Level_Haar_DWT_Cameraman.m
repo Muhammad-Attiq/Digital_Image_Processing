@@ -1,0 +1,14 @@
+I = imread('cameraman.tif');
+I = im2double(I);
+[cA1, cH1, cV1, cD1] = dwt2(I, 'haar');
+[cA2, cH2, cV2, cD2] = dwt2(cA1, 'haar');
+[cA3, cH3, cV3, cD3] = dwt2(cA2, 'haar');
+figure;
+subplot(2,2,1), imshow(cA3), title('Approximation Level 3');
+subplot(2,2,2), imshow(cH3), title('Horizontal Level 3');
+subplot(2,2,3), imshow(cV3), title('Vertical Level 3');
+subplot(2,2,4), imshow(cD3), title('Diagonal Level 3');
+I_reconstructed = idwt2(cA3, cH3, cV3, cD3, 'haar');
+I_reconstructed = idwt2(I_reconstructed, cH2, cV2, cD2, 'haar');
+I_reconstructed = idwt2(I_reconstructed, cH1, cV1, cD1, 'haar');
+figure, imshow(I_reconstructed), title('Reconstructed Image');
