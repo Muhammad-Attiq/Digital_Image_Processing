@@ -1,6 +1,6 @@
-# Digital Image Processing Lab
+# Digital Image Processing
 
-This repository contains MATLAB implementations of basic Digital Image Processing techniques.
+This repository contains MATLAB implementations of Digital Image Processing techniques.
 
 ## Contents
 - Image Enhancement  
